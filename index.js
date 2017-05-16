@@ -110,7 +110,7 @@ class PostCSSCompiler {
 Object.assign(PostCSSCompiler.prototype, {
 	brunchPlugin: true,
 	type: 'stylesheet',
-	extension: 'css',
+	pattern: /\.((s[ac]ss)|css)$/,
 });
 
 module.exports = PostCSSCompiler;
