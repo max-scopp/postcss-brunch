@@ -57,8 +57,12 @@ class PostCSSCompiler {
 		this.processor = postcss(proc);
 		this.modules = this.config.modules;
 	}
-
+	
 	compile(file) {
+		return Promise.resolve(file);
+	}
+
+	optimize(file) {
 		if(this.isIgnored(file.path)) {
 			return Promise.resolve(file);
 		}
@@ -110,6 +114,7 @@ class PostCSSCompiler {
 Object.assign(PostCSSCompiler.prototype, {
 	brunchPlugin: true,
 	type: 'stylesheet',
+	defaultEnv: '*',
 	pattern: /\.((s[ac]ss)|css)$/,
 });
 
